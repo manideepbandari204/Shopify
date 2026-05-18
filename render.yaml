@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: shopify-backend
+    runtime: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: MONGODB_URI
+        scope: build
+      - key: NODE_ENV
+        value: production
+    rootDir: backend
